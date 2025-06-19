@@ -1,10 +1,10 @@
-import BranchTable from '../../components/admin/BranchTable';
+import { BranchTable } from '../../components/admin/BranchTable'
 
-export default function BranchesPage() {
+export function BranchesPage() {
   return (
     <div>
-      <h1 style={{ fontSize: '1.8rem', color: '#1e293b', marginBottom: '1rem' }}>Şubeler</h1>
+      <h1 className="text-2xl font-bold text-slate-800 mb-4">Şubeler</h1>
       <BranchTable />
     </div>
-  );
+  )
 }

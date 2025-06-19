@@ -1,24 +1,17 @@
-import AuthCard from "../components/auth/AuthCard";
 import InputField from "../components/auth/InputField";
 import SubmitButton from "../components/auth/SubmitButton";
 
-export default function LoginPage() {
+export function LoginPage() {
   return (
-    <AuthCard>
-      <h1>Giriş Yap</h1>
-      <form className="login-form">
-        <InputField
-          type="email"
-          placeholder="mail@example.com"
-          name="email"
-        />
-        <InputField
-          type="password"
-          placeholder="Şifre"
-          name="password"
-        />
-        <SubmitButton label="Giriş Yap" />
-      </form>
-    </AuthCard>
-  );
+    <div className="bg-custom-gradient flex items-center justify-center">
+      <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-8 shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-white">Giriş Yap</h2>
+        <form className="space-y-4">
+          <InputField type="email" placeholder="Email" name="email" />
+          <InputField type="password" placeholder="Şifre" name="password" />
+          <SubmitButton label="Giriş" />
+        </form>
+      </div>
+    </div>
+  )
 }

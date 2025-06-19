@@ -11,70 +11,36 @@ const dummyStock: StockItem[] = [
   { id: 2, name: 'Ayran', category: 'İçecek', quantity: 15, criticalLevel: 20 },
   { id: 3, name: 'Su', category: 'İçecek', quantity: 5, criticalLevel: 10 },
   { id: 4, name: 'Künefe', category: 'Tatlı', quantity: 0, criticalLevel: 5 },
-];
+]
 
-export default function StockTable() {
+export function StockTable() {
   return (
-    <div style={{ overflowX: 'auto' }}>
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          backgroundColor: '#fff',
-          border: '2px solid #cbd5e1',
-          borderRadius: '8px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-        }}
-      >
-        <thead style={{ backgroundColor: '#f1f5f9' }}>
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse bg-white border-2 border-slate-300 rounded-md shadow-md">
+        <thead className="bg-slate-100">
           <tr>
-            <th style={thStyle}>Ürün</th>
-            <th style={thStyle}>Kategori</th>
-            <th style={thStyle}>Stok</th>
-            <th style={thStyle}>Kritik Seviye</th>
-            <th style={thStyle}>Durum</th>
+            <th className="text-left p-4 text-sm font-semibold text-slate-800 border-b-2 border-slate-300">Ürün</th>
+            <th className="text-left p-4 text-sm font-semibold text-slate-800 border-b-2 border-slate-300">Kategori</th>
+            <th className="text-left p-4 text-sm font-semibold text-slate-800 border-b-2 border-slate-300">Stok</th>
+            <th className="text-left p-4 text-sm font-semibold text-slate-800 border-b-2 border-slate-300">Kritik Seviye</th>
+            <th className="text-left p-4 text-sm font-semibold text-slate-800 border-b-2 border-slate-300">Durum</th>
           </tr>
         </thead>
         <tbody>
           {dummyStock.map((item, i) => {
-            const isCritical = item.quantity <= item.criticalLevel;
-
+            const isCritical = item.quantity <= item.criticalLevel
             return (
-              <tr key={item.id} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#f9fafb' }}>
-                <td style={tdStyle}>{item.name}</td>
-                <td style={tdStyle}>{item.category}</td>
-                <td style={tdStyle}>{item.quantity}</td>
-                <td style={tdStyle}>{item.criticalLevel}</td>
-                <td
-                  style={{
-                    ...tdStyle,
-                    color: isCritical ? 'red' : 'green',
-                    fontWeight: 600,
-                  }}
-                >
-                  {isCritical ? 'Kritik' : 'Yeterli'}
-                </td>
+              <tr key={item.id} className={`${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'} transition`}>
+                <td className="p-4 text-sm text-slate-800 border-b border-slate-200">{item.name}</td>
+                <td className="p-4 text-sm text-slate-800 border-b border-slate-200">{item.category}</td>
+                <td className="p-4 text-sm text-slate-800 border-b border-slate-200">{item.quantity}</td>
+                <td className="p-4 text-sm text-slate-800 border-b border-slate-200">{item.criticalLevel}</td>
+                <td className={`p-4 text-sm font-semibold border-b border-slate-200 ${isCritical ? 'text-red-500' : 'text-green-600'}`}>{isCritical ? 'Kritik' : 'Yeterli'}</td>
               </tr>
-            );
+            )
           })}
         </tbody>
       </table>
     </div>
-  );
+  )
 }
-
-const thStyle = {
-  padding: '1rem',
-  fontWeight: '600',
-  fontSize: '0.95rem',
-  color: '#1e293b',
-  borderBottom: '2px solid #cbd5e1',
-  textAlign: 'left' as const,
-};
-
-const tdStyle = {
-  padding: '1rem',
-  fontSize: '0.95rem',
-  color: '#1e293b',
-  borderBottom: '1px solid #e2e8f0',
-};

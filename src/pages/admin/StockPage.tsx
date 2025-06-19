@@ -1,12 +1,10 @@
-import StockTable from '../../components/admin/StockTable';
+import { StockTable } from '../../components/admin/StockTable'
 
-export default function StockPage() {
+export function StockPage() {
   return (
     <div>
-      <h1 style={{ fontSize: '1.8rem', color: '#1e293b', marginBottom: '1rem' }}>
-        Stok Takibi
-      </h1>
+      <h1 className="text-2xl font-bold text-slate-800 mb-4">Stok Takibi</h1>
       <StockTable />
     </div>
-  );
+  )
 }

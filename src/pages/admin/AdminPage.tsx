@@ -1,31 +1,15 @@
-// src/pages/admin/AdminPage.tsx
-import { Outlet } from 'react-router-dom';
-import Sidebar from '../../components/admin/Sidebar';
+import { Outlet } from 'react-router-dom'
+import Sidebar from '../../components/admin/Sidebar'
 
 export default function AdminPage() {
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="flex">
       <Sidebar />
-      <main
-        style={{
-          marginLeft: '240px',
-          padding: '2rem',
-          backgroundColor: '#f1f5f9',
-          minHeight: '100vh',
-          width: '100%',
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: '#fff',
-            borderRadius: '10px',
-            padding: '2rem',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          }}
-        >
+      <main className="ml-60 p-8 bg-slate-100 min-h-screen w-full">
+        <div className="bg-white rounded-xl p-8 shadow-md">
           <Outlet />
         </div>
       </main>
     </div>
-  );
+  )
 }

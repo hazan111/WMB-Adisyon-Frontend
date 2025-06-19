@@ -1,30 +1,19 @@
-import AuthCard from "../components/auth/AuthCard";
-import InputField from "../components/auth/InputField";
-import SubmitButton from "../components/auth/SubmitButton";
+import InputField from '../components/auth/InputField'
+import SubmitButton from '../components/auth/SubmitButton'
 
-
-export default function RegisterPage() {
+export function RegisterPage() {
   return (
-    <AuthCard>
-      <h1>Kayıt Ol</h1>
-      <form className="register-form">
-        <InputField
-          type="text"
-          placeholder="Kullanıcı Adı"
-          name="username"
-        />
-        <InputField
-          type="email"
-          placeholder="mail@example.com"
-          name="email"
-        />
-        <InputField
-          type="password"
-          placeholder="Şifre"
-          name="password"
-        />
-        <SubmitButton label="Kayıt Ol" />
-      </form>
-    </AuthCard>
-  );
+    <div className="bg-custom-gradient flex items-center justify-center">
+      <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-8 shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-white">Kayıt Ol</h2>
+        <form className="space-y-4">
+          <InputField type="text" placeholder="Kullanıcı Adı" name="username" />
+          <InputField type="email" placeholder="Email" name="email" />
+          <InputField type="password" placeholder="Şifre" name="password" />
+          <SubmitButton label="Kayıt Ol" />
+        </form>
+      </div>
+    </div>
+  )
 }
+
